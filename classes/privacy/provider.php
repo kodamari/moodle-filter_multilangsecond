@@ -14,10 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace filter_multilangsecond\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2025042200;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2024100700;        // Requires this Moodle version
-$plugin->component = 'filter_multilangsecond'; // Full name of the plugin (used for diagnostics)
-$plugin->release   = '1.4';
-$plugin->maturity = MATURITY_ALPHA;
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}
